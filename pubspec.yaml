@@ -111,6 +111,7 @@ flutter:
   assets:
     - assets/97171-loading-plane.json
     - assets/132608-congrats-summer.json
+    - assets/auth.json
     - assets/99349-girl-with-books.json
     - assets/images/
     - assets/icons/

@@ -33,7 +33,7 @@ Future<Album> createAlbum(
     int Graphics_Designing) async {
   final http.Response response = await http.get(
     Uri.parse(
-        'https://5e95-103-51-148-126.in.ngrok.io/home?Database%20Fundamentals=$Database_Fundamentals&Computer%20Architecture=$Computer_Architecture&Distributed%20Computing%20Systems=$Distributed_Computing_Systems&Cyber%20Security=$Cyber_Security&Networking=$Networking&Development=$Development&Programming%20Skills=$Programming_Skills&Project%20Management=$Project_Management&Computer%20Forensics%20Fundamentals=$Computer_Forensics_Fundamentals&Technical%20Communication=$Communication_skills&AI%20ML=$AI_ML&Software%20Engineering=$Software_Engineering&Business%20Analysis=$Business_Analysis&Communication%20skills=$Communication_skills&Data%20Science=$Data_Science&Troubleshooting%20skills=$Troubleshooting_skills&Graphics%20Designing=$Graphics_Designing'),
+        'https://b91f-45-112-68-24.in.ngrok.io/home?Database%20Fundamentals=$Database_Fundamentals&Computer%20Architecture=$Computer_Architecture&Distributed%20Computing%20Systems=$Distributed_Computing_Systems&Cyber%20Security=$Cyber_Security&Networking=$Networking&Development=$Development&Programming%20Skills=$Programming_Skills&Project%20Management=$Project_Management&Computer%20Forensics%20Fundamentals=$Computer_Forensics_Fundamentals&Technical%20Communication=$Communication_skills&AI%20ML=$AI_ML&Software%20Engineering=$Software_Engineering&Business%20Analysis=$Business_Analysis&Communication%20skills=$Communication_skills&Data%20Science=$Data_Science&Troubleshooting%20skills=$Troubleshooting_skills&Graphics%20Designing=$Graphics_Designing'),
   );
 
   if (response.statusCode == 200) {

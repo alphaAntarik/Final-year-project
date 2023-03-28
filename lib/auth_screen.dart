@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:lottie/lottie.dart';
 
 
 import 'auth_widget.dart';
@@ -79,10 +80,25 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      body: AuthForm(
-        _submitAuthForm,
-        _isLoading,
+      //backgroundColor: Theme.of(context).primaryColor,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: 50,),
+            Container(
+              width: 280,
+              height: 150,
+              child: Lottie.asset('assets/auth.json', 
+                  fit: BoxFit.contain),
+            ),
+            SizedBox(height: 50,),
+
+            AuthForm(
+              _submitAuthForm,
+              _isLoading,
+            ),
+          ],
+        ),
       ),
     );
   }
