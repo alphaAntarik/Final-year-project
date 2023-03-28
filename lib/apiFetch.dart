@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -31,7 +33,7 @@ Future<Album> createAlbum(
     int Graphics_Designing) async {
   final http.Response response = await http.get(
     Uri.parse(
-        'https://4ec4-45-112-69-157.in.ngrok.io/home?Database%20Fundamentals=$Database_Fundamentals&Computer%20Architecture=$Computer_Architecture&Distributed%20Computing%20Systems=$Distributed_Computing_Systems&Cyber%20Security=$Cyber_Security&Networking=$Networking&Development=$Development&Programming%20Skills=$Programming_Skills&Project%20Management=$Project_Management&Computer%20Forensics%20Fundamentals=$Computer_Forensics_Fundamentals&Technical%20Communication=$Communication_skills&AI%20ML=$AI_ML&Software%20Engineering=$Software_Engineering&Business%20Analysis=$Business_Analysis&Communication%20skills=$Communication_skills&Data%20Science=$Data_Science&Troubleshooting%20skills=$Troubleshooting_skills&Graphics%20Designing=$Graphics_Designing'),
+        'https://5e95-103-51-148-126.in.ngrok.io/home?Database%20Fundamentals=$Database_Fundamentals&Computer%20Architecture=$Computer_Architecture&Distributed%20Computing%20Systems=$Distributed_Computing_Systems&Cyber%20Security=$Cyber_Security&Networking=$Networking&Development=$Development&Programming%20Skills=$Programming_Skills&Project%20Management=$Project_Management&Computer%20Forensics%20Fundamentals=$Computer_Forensics_Fundamentals&Technical%20Communication=$Communication_skills&AI%20ML=$AI_ML&Software%20Engineering=$Software_Engineering&Business%20Analysis=$Business_Analysis&Communication%20skills=$Communication_skills&Data%20Science=$Data_Science&Troubleshooting%20skills=$Troubleshooting_skills&Graphics%20Designing=$Graphics_Designing'),
   );
 
   if (response.statusCode == 200) {
@@ -42,12 +44,22 @@ Future<Album> createAlbum(
 }
 
 class ApiFetch extends StatefulWidget {
+
+
+  //final String username;
   static String ApiFetchRoute = '/apiFetch';
+
+  // const ApiFetch();
+
+  //const ApiFetch(this.username);
   @override
   State<ApiFetch> createState() => _ApiFetchState();
 }
 
 class _ApiFetchState extends State<ApiFetch> {
+  bool _showButton = false;
+
+
   TextEditingController _controller1;
   TextEditingController _controller2;
   TextEditingController _controller3;
@@ -86,6 +98,30 @@ class _ApiFetchState extends State<ApiFetch> {
     _controller15 = TextEditingController();
     _controller16 = TextEditingController();
     _controller17 = TextEditingController();
+
+    _controller1.text = '0';
+    _controller2.text = '0';
+    _controller3.text = '0';
+    _controller4.text = '0';
+    _controller5.text = '0';
+    _controller6.text = '0';
+    _controller7.text = '0';
+    _controller8.text = '0';
+    _controller9.text = '0';
+    _controller10.text = '0';
+    _controller11.text = '0';
+    _controller12.text = '0';
+    _controller13.text = '0';
+    _controller14.text = '0';
+    _controller15.text = '0';
+    _controller16.text = '0';
+    _controller17.text = '0';
+
+    Timer(Duration(seconds: 15), () {
+      setState(() {
+        _showButton = true;
+      });
+    });
   }
 
   @override
@@ -136,6 +172,15 @@ class _ApiFetchState extends State<ApiFetch> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
+                    //             Text(
+                    //   "${widget.name}, let us know",
+                    //
+                    //   style: TextStyle(
+                    //       color: Colors.black,
+                    //       fontStyle: FontStyle.normal,
+                    //       fontWeight: FontWeight.w700),
+                    // ),
+                   // SizedBox(height: 10,),
                     Padding(
                       padding: EdgeInsets.all(10),
                       child: TextField(
@@ -202,7 +247,7 @@ class _ApiFetchState extends State<ApiFetch> {
                         controller: _controller7,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: 'Programming_Skills',
+                            labelText: 'Programming Skills',
                             hintText: 'out of 10'),
                       ),
                     ),
@@ -212,7 +257,7 @@ class _ApiFetchState extends State<ApiFetch> {
                         controller: _controller8,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: 'Project_Management',
+                            labelText: 'Project Management',
                             hintText: 'out of 10'),
                       ),
                     ),
@@ -252,7 +297,7 @@ class _ApiFetchState extends State<ApiFetch> {
                         controller: _controller12,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: 'Software_Engineering',
+                            labelText: 'Software Engineering',
                             hintText: 'out of 10'),
                       ),
                     ),
@@ -262,7 +307,7 @@ class _ApiFetchState extends State<ApiFetch> {
                         controller: _controller13,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: 'Business_Analysis',
+                            labelText: 'Principles of management',
                             hintText: 'out of 10'),
                       ),
                     ),
@@ -272,7 +317,7 @@ class _ApiFetchState extends State<ApiFetch> {
                         controller: _controller14,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: 'Communication_skills',
+                            labelText: 'Communication skills',
                             hintText: 'out of 10'),
                       ),
                     ),
@@ -302,7 +347,7 @@ class _ApiFetchState extends State<ApiFetch> {
                         controller: _controller17,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: 'Graphics Designing',
+                            labelText: 'Computer Graphics',
                             hintText: 'out of 10'),
                       ),
                     ),
@@ -350,17 +395,69 @@ class _ApiFetchState extends State<ApiFetch> {
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       return Center(
-                        child: Stack(
+                        child: _showButton? Stack(
                           children: [
                             Lottie.asset('assets/132608-congrats-summer.json',
                                 repeat: false),
                             Align(
                               alignment: Alignment.center,
-                              child: Text(
+                              child:
+                              Text(
+                                (snapshot.data.placement == 'Application Support Engineer')?"Software test Engineer":
+                                (snapshot.data.placement == 'Software tester')?"Software test Engineer":
+                                (snapshot.data.placement == 'Cyber Security Specialist')?"Cyber Security Analyst":
+                                (snapshot.data.placement == 'Information Security Specialist')?"Cyber Security Analyst":
+                                (snapshot.data.placement == 'Technical Writer')?"Content Writer":
+                                (snapshot.data.placement == 'Customer Service Executive')?"BPO":
+                                (snapshot.data.placement == 'Helpdesk Engineer')?"KPO":
+                                (snapshot.data.placement == 'API Specialist')?"Database Administrator,"
+                                    "Software Developer":
+
                                 "${snapshot.data.placement}",
                                 style: TextStyle(fontSize: 44),
                               ),
+                            ),InkWell(
+                              onTap: () {
+                                FirebaseAuth.instance.signOut();
+                              },
+                              child: Container(
+                                width: 56,
+                                height: 56,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.white,
+                                ),
+                                child: Icon(
+                                  Icons.logout,
+                                  color: Colors.black,
+                                ),
+                              ),
                             ),
+
+                          ],
+                        ):Stack(
+                          children: [
+                            Lottie.asset('assets/132608-congrats-summer.json',
+                                repeat: false),
+                            Align(
+                              alignment: Alignment.center,
+                              child:
+                              Text(
+                                (snapshot.data.placement == 'Application Support Engineer')?"Software test Engineer":
+                                (snapshot.data.placement == 'Software tester')?"Software test Engineer":
+                                (snapshot.data.placement == 'Cyber Security Specialist')?"Cyber Security Analyst":
+                                (snapshot.data.placement == 'Information Security Specialist')?"Cyber Security Analyst":
+                                (snapshot.data.placement == 'Technical Writer')?"Content Writer":
+                                (snapshot.data.placement == 'Customer Service Executive')?"BPO":
+                                (snapshot.data.placement == 'Helpdesk Engineer')?"KPO":
+                                (snapshot.data.placement == 'API Specialist')?"Database Administrator,"
+                                    "Software Developer":
+
+                                "${snapshot.data.placement}",
+                                style: TextStyle(fontSize: 44),
+                              ),
+                            )
+
                           ],
                         ),
                       );

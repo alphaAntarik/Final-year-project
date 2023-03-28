@@ -16,17 +16,18 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  void initState() {
-    super.initState();
-    startTimer();
-  }
+  // void initState() {
+  //   super.initState();
+  //   startTimer();
+  // }
 
-  startTimer() {
-    var duration = Duration(seconds: 5);
-    return Timer(duration, () {
-      Navigator.of(context).pushReplacementNamed(ApiFetch.ApiFetchRoute);
-    });
-  }
+  // startTimer() {
+  //   var duration = Duration(seconds: 5);
+  //   return Timer(duration, () {
+  //     Navigator.pushReplacement(context,
+  //         MaterialPageRoute(builder: (BuildContext context) => ApiFetch()));
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
